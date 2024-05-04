@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
-function App() {
+import './App.css';
+import Home from './routes/home/Home.component';
+import Header from './components/Header/Header.component';
+import Footer from './components/Footer/Footer.component';
+
+const App = () => {
+  const Layout = () => {
+    return (
+      <>
+        <Header />
+        <Outlet />
+        <Footer />
+      </>
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+
+        {/* Example of adding different route to the page */}
+        {/* <Route path='shop/*' element={<Shop />} />
+        <Route path='auth' element={<Authentication />} />
+        <Route path='checkout' element={<Checkout />} /> */}
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
