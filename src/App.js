@@ -1,9 +1,10 @@
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 import './App.css';
-import Home from './routes/home/Home.component';
+import Home from './routes/Home/Home.component';
 import Header from './components/Header/Header.component';
 import Footer from './components/Footer/Footer.component';
+import Welcome from './routes/Welcome/Welcome.component';
 
 const App = () => {
   const Layout = () => {
@@ -20,11 +21,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
-
-        {/* Example of adding different route to the page */}
-        {/* <Route path='shop/*' element={<Shop />} />
-        <Route path='auth' element={<Authentication />} />
-        <Route path='checkout' element={<Checkout />} /> */}
+        <Route path='welcome' element={<Welcome />} />
       </Route>
     </Routes>
   );
